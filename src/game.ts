@@ -1,15 +1,9 @@
 import "./style.css";
 import { createFooter } from "./components.ts";
+import { Minisiege } from "./logic.ts";
 
-interface GameState {
-	output: string;
-	currentScene: string;
-}
-
-let gameState: GameState = {
-	output: "",
-	currentScene: "/siege.png"
-}
+let gameMinisiege = new Minisiege();
+let gameOutput = "";
 
 function createDesktopInterface(): string {
 	return `
@@ -101,14 +95,15 @@ function handleTextInput(command: string) {
 		return;
 	}
 
-	gameState.output += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
+	gameOutput += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
+
 	updateGameOutput();
 }
 
 function updateGameOutput() {
 	const outputElement = document.getElementById("game-output");
 	if (outputElement) {
-		outputElement.innerHTML = gameState.output;
+		outputElement.innerHTML = gameOutput;
 
 		const scrollContainer = outputElement.parentElement;
 		if (scrollContainer) {
