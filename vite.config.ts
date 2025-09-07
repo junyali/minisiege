@@ -8,7 +8,8 @@ export default defineConfig({
 		assetsDir: "assets",
 		rollupOptions: {
 			input: {
-				main: "index.html"
+				main: "index.html",
+				game: "game/index.html"
 			}
 		}
 	},
