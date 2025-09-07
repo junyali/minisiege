@@ -20,6 +20,24 @@ interface Player {
 
 const EVENTS: GameEvent[] = [
 	// yeah basically funni stuff goes here :3
+	{
+		description: "You encounter an evil dino! What do you do?",
+		actions: {
+			"attack": { description: "You fight and win, finding some loose change!", coinsChange: 5, healthChange: -10, death: false },
+			"defend": { description: "You block the dino's attack and scare it away!", coinsChange: 0, healthChange: -5, death: false },
+			"flee": { description: "You run away safely but drop your loot!", coinsChange: -30, healthChange: 0, death: false }
+		},
+		scene: "/evil_dino.jpg"
+	},
+	{
+		description: "You walk across a bridge and encounter a troll who orders you to pay a toll. What do you do?",
+		actions: {
+			"pay": { description: "You pay the troll the toll and it lets you through!", coinsChange: -10, healthChange: 0, death: false },
+			"avoid": { description: "You try to avoid paying, but the troll fines you!", coinsChange: -50, healthChange: 0, death: false },
+			"attack": { description: "You attack the troll, but it trolls you first!", coinsChange: 0, healthChange: 0, death: true }
+		},
+		scene: "/troll.png"
+	}
 ]
 
 export class Minisiege {
