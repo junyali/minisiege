@@ -55,8 +55,12 @@ export class Minisiege {
 
 	getIntroStory(): string {
 		return `
-			orpheus points to the bottom corner where you can see just one castle, alone in a sea of fog. 'Hey! that looks like us! only... why did you draw yourself as a dragon?'
-			heidi gives a little smirk as you scan the rest of the map you start to realize what this means... 'wait... so... there's more out there?' as you keep looking over the map you see just how vast the world truly is. 'there's so much unexplored! so many opportunities for adventure!'
+			orpheus points to the bottom corner where you can see just one castle, alone in a sea of fog.
+			'Hey! that looks like us! only... why did you draw yourself as a dragon?'
+			heidi gives a little smirk as you scan the rest of the map you start to realize what this means...
+			'wait... so... there's more out there?'
+			as you keep looking over the map you see just how vast the world truly is.
+			'there's so much unexplored! so many opportunities for adventure!'
 			orpheus and heidi nod exitedly together
 			'well then, I guess we should get prepared... it's going to be a long one...'
 
