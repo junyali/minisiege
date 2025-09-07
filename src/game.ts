@@ -4,6 +4,7 @@ import { Minisiege } from "./logic.ts";
 
 let gameMinisiege = new Minisiege();
 let gameOutput = "";
+let gameScene = "";
 
 function createDesktopInterface(): string {
 	return `
@@ -97,6 +98,11 @@ function handleTextInput(command: string) {
 
 	gameOutput += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
 
+	const specialResult = gameMinisiege.handleSpecialCommand(command);
+	const result = specialResult || gameMinisiege.processAction(command);
+
+	gameOutput += `<div class="mb-4 text-gray-300">${result.replace(/\n/g, '<br>')}</div>`;
+
 	updateGameOutput();
 }
 
@@ -114,6 +120,8 @@ function updateGameOutput() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	renderApp();
+	gameOutput = gameMinisiege.getIntroStory();
+	updateGameOutput();
 	// i hate webdev why wont it work :c
 	window.addEventListener("resize", () => {
 		renderApp();
