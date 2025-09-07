@@ -123,7 +123,7 @@ export class Minisiege {
 
 		if (this.player.isAlive) {
 			if (this.player.week <= 10) {
-				response += `\n\nType 'next' to continue to week ${this.player.week + 1}!`;
+				response += `\n\nType 'next' to continue to week ${this.player.week}!`;
 			} else {
 				response += "\n\n" + this.getEndGame();
 			}
