@@ -1,9 +1,9 @@
 import "./style.css";
 import { createFooter } from "./components.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-    <div class="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat flex flex-col items-center justify-between p-8">
-        <div class="hidden lg:block relative bg-black rounded-3xl shadow-2xl p-6 max-w-5xl w-full h-[70vh]">
+function createDesktopInterface(): string {
+	return `
+		<div class="hidden lg:block relative bg-black rounded-3xl shadow-2xl p-6 max-w-5xl w-full h-[70vh]">
             <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <img src="/hacktab.png" alt="" class="h-6 w-auto"/>
 			</div>
@@ -26,7 +26,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </div>
             </div>
         </div>
-        <div class="lg:hidden relative bg-black rounded-3xl shadow-2xl p-4 max-w-sm w-full h-[60vh]">
+	`;
+}
+
+function createMobileInterface(): string {
+	return `
+		<div class="lg:hidden relative bg-black rounded-3xl shadow-2xl p-4 max-w-sm w-full h-[60vh]">
             <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <img src="/hacktab.png" alt="" class="h-6 w-auto"/>
 			</div>
@@ -48,6 +53,30 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 				</div>
 			</div>
 		</div>
-        ${createFooter()}
-    </div>
-`;
+	`;
+}
+
+function renderApp() {
+	const app = document.querySelector<HTMLDivElement>('#app');
+	if (!app) {
+		return;
+	}
+
+	app.innerHTML = `
+		<div class="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat flex flex-col items-center justify-between p-8">
+			${createDesktopInterface()}
+			${createMobileInterface()}
+			${createFooter()}
+		</div>
+	`;
+
+	setupEventListeners();
+}
+
+function setupEventListeners() {
+	// handle user input logic here idk
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	renderApp();
+});
