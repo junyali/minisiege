@@ -109,11 +109,18 @@ function updateGameOutput() {
 	const outputElement = document.getElementById("game-output");
 	if (outputElement) {
 		outputElement.innerHTML = gameState.output;
-		// @ts-ignore
-		outputElement.parentElement.scrollTop = outputElement.parentElement.scrollHeight;
+
+		const scrollContainer = outputElement.parentElement;
+		if (scrollContainer) {
+			scrollContainer.scrollTop = scrollContainer.scrollHeight;
+		}
 	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 	renderApp();
+	// i hate webdev why wont it work :c
+	window.addEventListener("resize", () => {
+		renderApp();
+	});
 });
