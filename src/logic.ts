@@ -114,7 +114,7 @@ export class Minisiege {
 			${result.description}
 			Stats:
 			- Health: ${this.player.health}
-			- Coins: ${this.player.coins}}
+			- Coins: ${this.player.coins}
 		`;
 
 		if (this.player.isAlive) {
