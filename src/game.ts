@@ -2,8 +2,11 @@ import "./style.css";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat flex flex-col items-center justify-between p-8">
-        <div class="relative bg-black rounded-3xl shadow-2xl p-6 max-w-5xl w-full h-[60vh]">
-            <div class="bg-black rounded-2xl h-full p-4 flex gap-4">
+        <div class="relative bg-black rounded-3xl shadow-2xl p-6 max-w-5xl w-full h-[70vh]">
+            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <img src="/hacktab.png" alt="" class="h-6 w-auto"/>
+			</div>
+            <div class="bg-black rounded-2xl h-full p-6 flex gap-4">
                 <div class="flex-[3] flex flex-col">
                     <div class="flex-1 bg-gray-900 rounded-lg p-4 mb-4 overflow-y-auto text-sm text-white border border-gray-700">
                         <p class="break-all overflow-y-auto">meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p>
