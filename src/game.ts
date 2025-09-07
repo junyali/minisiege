@@ -1,6 +1,16 @@
 import "./style.css";
 import { createFooter } from "./components.ts";
 
+interface GameState {
+	output: string;
+	currentScene: string;
+}
+
+let gameState: GameState = {
+	output: "",
+	currentScene: "/siege.png"
+}
+
 function createDesktopInterface(): string {
 	return `
 		<div class="hidden lg:block relative bg-black rounded-3xl shadow-2xl p-6 max-w-5xl w-full h-[70vh]">
@@ -10,7 +20,7 @@ function createDesktopInterface(): string {
             <div class="bg-black rounded-2xl h-full p-6 flex gap-4">
                 <div class="flex-[3] flex flex-col">
                     <div class="flex-1 bg-gray-900 rounded-lg p-4 mb-4 overflow-y-auto text-sm text-white border border-gray-700">
-                        <p class="break-all overflow-y-auto" id="game-output">meow</p>
+                        <div class="break-all overflow-y-auto" id="game-output"></div>
                     </div>
                     <input type="text"
                            placeholder="typeity typey type"
@@ -18,7 +28,7 @@ function createDesktopInterface(): string {
                            id="command-input"/>
                 </div>
                 <div class="flex-[2] bg-gray-900 rounded-lg border border-gray-700 flex items-center justify-center p-4">
-                    <img src="/minisiege.png"
+                    <img src="/siege.png"
                          alt=""
                          class="max-w-full max-h-full object-contain rounded"
                          id="scene-image"/>
@@ -37,14 +47,14 @@ function createMobileInterface(): string {
 			</div>
 			<div class="bg-black rounded-2xl h-full p-4 flex flex-col gap-4">
 				<div class="flex-1 bg-gray-900 rounded-lg border border-gray-700 flex items-center justify-center p-3">
-					<img src="/minisiege.png"
+					<img src="/siege.png"
 					     alt=""
 					     class="max-w-full max-h-full object-contain rounded"
 					     id="scene-image"/>
 				</div>
 				<div class="flex-[3] flex flex-col">
 					<div class="flex-1 bg-gray-900 rounded-lg p-3 mb-3 overflow-y-auto text-xs text-white border border-gray-700">
-						<p class="break-all overflow-y-auto" id="game-output">meow</p>
+						<div class="break-all overflow-y-auto" id="game-output"></div>
 					</div>
 					<input type="text"
                            placeholder="typeity typey type"
@@ -71,6 +81,7 @@ function renderApp() {
 	`;
 
 	setupEventListeners();
+	updateGameOutput();
 }
 
 function setupEventListeners() {
@@ -78,21 +89,29 @@ function setupEventListeners() {
 	if (commandInput) {
 		commandInput.addEventListener("keydown", (event) => {
 			if (event.key == "Enter") {
-				handleTextInput(commandInput.value, "game-output");
+				handleTextInput(commandInput.value);
 				commandInput.value = "";
 			}
 		});
 	}
 }
 
-function handleTextInput(command: string, outputId: string) {
-	const outputElement = document.getElementById(outputId);
-	if (!outputElement || !command.trim()) {
+function handleTextInput(command: string) {
+	if (!command.trim()) {
 		return;
 	}
 
-	outputElement.innerHTML += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
-	outputElement.scrollTop = outputElement.scrollHeight;
+	gameState.output += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
+	updateGameOutput();
+}
+
+function updateGameOutput() {
+	const outputElement = document.getElementById("game-output");
+	if (outputElement) {
+		outputElement.innerHTML = gameState.output;
+		// @ts-ignore
+		outputElement.parentElement.scrollTop = outputElement.parentElement.scrollHeight;
+	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
