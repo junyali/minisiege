@@ -10,7 +10,7 @@ function createDesktopInterface(): string {
             <div class="bg-black rounded-2xl h-full p-6 flex gap-4">
                 <div class="flex-[3] flex flex-col">
                     <div class="flex-1 bg-gray-900 rounded-lg p-4 mb-4 overflow-y-auto text-sm text-white border border-gray-700">
-                        <p class="break-all overflow-y-auto">meow</p>
+                        <p class="break-all overflow-y-auto" id="game-output">meow</p>
                     </div>
                     <input type="text"
                            placeholder="typeity typey type"
@@ -40,11 +40,11 @@ function createMobileInterface(): string {
 					<img src="/minisiege.png"
 					     alt=""
 					     class="max-w-full max-h-full object-contain rounded"
-					     id="scene-image-mobile"/>
+					     id="scene-image"/>
 				</div>
 				<div class="flex-[3] flex flex-col">
 					<div class="flex-1 bg-gray-900 rounded-lg p-3 mb-3 overflow-y-auto text-xs text-white border border-gray-700">
-						<p class="break-all overflow-y-auto">meow</p>
+						<p class="break-all overflow-y-auto" id="game-output">meow</p>
 					</div>
 					<input type="text"
                            placeholder="typeity typey type"
@@ -74,7 +74,25 @@ function renderApp() {
 }
 
 function setupEventListeners() {
-	// handle user input logic here idk
+	const commandInput = document.getElementById("command-input") as HTMLInputElement;
+	if (commandInput) {
+		commandInput.addEventListener("keydown", (event) => {
+			if (event.key == "Enter") {
+				handleTextInput(commandInput.value, "game-output");
+				commandInput.value = "";
+			}
+		});
+	}
+}
+
+function handleTextInput(command: string, outputId: string) {
+	const outputElement = document.getElementById(outputId);
+	if (!outputElement || !command.trim()) {
+		return;
+	}
+
+	outputElement.innerHTML += `<div class="mb-2"><span class="text-green-400">&gt;</span> ${command}</div>`;
+	outputElement.scrollTop = outputElement.scrollHeight;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
