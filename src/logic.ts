@@ -94,7 +94,7 @@ export class Minisiege {
 			if (action.toLowerCase() === "start") {
 				return this.startWeek();
 			}
-			return "Type 'start' to begin!";
+			return "Can't do that!";
 		}
 
 		const normalised = action.toLowerCase().trim();
