@@ -141,6 +141,7 @@ export class Minisiege {
 	}
 
 	private getDeathGame(): string {
+		this.currentScene = "/events/death.png"
 		return `
 			💀 YOU DIED! 💀
 			
@@ -156,6 +157,7 @@ export class Minisiege {
 	}
 
 	private getEndGame(): string {
+		this.currentScene = "/events/yay.gif"
 		return `
 			🎉 CONGRATULATIONS 🎉
 			
