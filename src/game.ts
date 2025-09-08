@@ -102,6 +102,7 @@ function handleTextInput(command: string) {
 	const result = specialResult || gameMinisiege.processAction(command);
 
 	gameOutput += `<div class="mb-4 text-gray-300">${result.replace(/\n/g, '<br>')}</div>`;
+	gameScene = gameMinisiege.getCurrentScene();
 
 	updateGameOutput();
 }
@@ -116,11 +117,17 @@ function updateGameOutput() {
 			scrollContainer.scrollTop = scrollContainer.scrollHeight;
 		}
 	}
+
+	const sceneImage = document.getElementById("scene-image") as HTMLImageElement;
+	if (sceneImage) {
+		sceneImage.src = gameScene;
+	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 	renderApp();
 	gameOutput = gameMinisiege.getIntroStory();
+	gameScene = "/siege.png";
 	updateGameOutput();
 	// i hate webdev why wont it work :c
 	window.addEventListener("resize", () => {

@@ -43,6 +43,7 @@ const EVENTS: GameEvent[] = [
 export class Minisiege {
 	private player: Player;
 	private currentEvent: GameEvent | null = null;
+	private currentScene: string = "";
 
 	constructor() {
 		this.player = {
@@ -111,6 +112,8 @@ export class Minisiege {
 			this.player.health = 0;
 		}
 
+		this.currentScene = this.currentEvent.scene;
+
 		this.player.week++;
 		this.currentEvent = null;
 
@@ -132,6 +135,10 @@ export class Minisiege {
 		}
 
 		return response;
+	}
+
+	getCurrentScene(): string {
+		return this.currentScene;
 	}
 
 	private getDeathGame(): string {
