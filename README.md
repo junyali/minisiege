@@ -26,5 +26,6 @@ npm install
 npm run dev
 ```
 
+Play at [minisiege.vercel.app](https://minisiege.vercel.app)
 
 Inspired by Siege - a Hack Club YSWS event.
