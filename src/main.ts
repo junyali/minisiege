@@ -13,7 +13,7 @@ function renderApp() {
 	            <img src="/minisiege.png" alt="Minisiege" class="w-full max-w-[400px] sm:max-w-sm h-auto"/>
 	        </div>
 	        <div class="flex-1 flex items-center justify-center">
-	            <button class="bg-[#7B0907] border-4 border-[#5A0605] text-white px-12 sm:px-24 py-3 sm:py-4 text-2xl font-bold rounded-2xl shadow-lg hover:transform hover:-translate-y-1 transition-transform duration-200 cursor-pointer">
+	            <button class="bg-[#7B0907] border-4 border-[#5A0605] text-white px-12 sm:px-24 py-3 sm:py-4 text-2xl font-bold rounded-2xl shadow-lg hover:transform hover:-translate-y-1 transition-transform duration-200 cursor-pointer" id="play-button">
 	                Play
 	            </button>
 	        </div>
@@ -28,7 +28,7 @@ function setupEventListeners() {
 	const playButton = document.getElementById("play-button");
 	if (playButton) {
 		playButton.addEventListener("click", () => {
-			window.location.href = "/game";
+			window.location.href = "/game/index.html";
 		});
 	}
 }
