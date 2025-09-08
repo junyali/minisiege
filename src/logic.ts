@@ -76,7 +76,7 @@ export class Minisiege {
 
 	startWeek(): string {
 		if (this.player.week > 10) {
-			// need to add logic for ending the game or smthn
+			return this.getEndGame();
 		}
 
 		this.currentEvent = EVENTS[Math.floor(Math.random() * EVENTS.length)];
@@ -142,13 +142,31 @@ export class Minisiege {
 
 	private getDeathGame(): string {
 		return `
-			yeah ur dead buddy
+			💀 YOU DIED! 💀
+			
+			You survived ${this.player.week - 1} weeks and collected ${this.player.coins} coins.
+			
+			Share your result:
+			
+			"I survived ${this.player.week - 1} weeks in minisiege and collected ${this.player.coins} coins!
+			How long can YOU survive? Play at [tba]!"
+			
+			Refresh to play again!
 		`;
 	}
 
 	private getEndGame(): string {
 		return `
-			woah u cool!!
+			🎉 CONGRATULATIONS 🎉
+			
+			You survived all 10 weeks of the siege and collected ${this.player.coins} coins!
+			
+			Share your result:
+			
+			"I survived all 10 weeks in minisiege and collected ${this.player.coins} coins!
+			How long can YOU survive? Play at [tba]!"
+			
+			Refresh to play again!
 		`;
 	}
 
