@@ -115,7 +115,7 @@ const EVENTS: GameEvent[] = [
 			"talk": { description: "You try to talk to him, but your social anxiety physically prevents you.", coinsChange: 0, healthChange: -1, death: false },
 			"run": { description: "You run in excitement and maybe drop a few loose change.", coinsChange: -3, healthChange: 0, death: false },
 		},
-		scene: "/zrl.png"
+		scene: "/events/zrl.png"
 	}
 ]
 
