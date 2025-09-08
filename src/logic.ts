@@ -106,6 +106,16 @@ const EVENTS: GameEvent[] = [
 			"negotiate": { description: "They offer you a ceasefire. You accept with your riches.", coinsChange: -100, healthChange: 0, death: false }
 		},
 		scene: "/siege.png"
+	},
+	// thinking about my life choices rn
+	{
+		description: "You're wandering around until you meet Zach Latta! What do you do?",
+		actions: {
+			"greet": { description: "You try to greet him, but his aura is so heavenly you stutter, and he walks off.", coinsChange: 0, healthChange: -1, death: false },
+			"talk": { description: "You try to talk to him, but your social anxiety physically prevents you.", coinsChange: 0, healthChange: -1, death: false },
+			"run": { description: "You run in excitement and maybe drop a few loose change.", coinsChange: -3, healthChange: 0, death: false },
+		},
+		scene: "/zrl.png"
 	}
 ]
 
