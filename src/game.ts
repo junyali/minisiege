@@ -15,7 +15,7 @@ function createDesktopInterface(): string {
             <div class="bg-black rounded-2xl h-full p-6 flex gap-4">
                 <div class="flex-[3] flex flex-col">
                     <div class="flex-1 bg-gray-900 rounded-lg p-4 mb-4 overflow-y-auto text-sm text-white border border-gray-700">
-                        <div class="break-all overflow-y-auto" id="game-output"></div>
+                        <div class="break-all overflow-y-auto whitespace-pre-wrap" id="game-output"></div>
                     </div>
                     <input type="text"
                            placeholder="typeity typey type"
@@ -49,7 +49,7 @@ function createMobileInterface(): string {
 				</div>
 				<div class="flex-[3] flex flex-col">
 					<div class="flex-1 bg-gray-900 rounded-lg p-3 mb-3 overflow-y-auto text-xs text-white border border-gray-700">
-						<div class="break-all overflow-y-auto" id="game-output"></div>
+						<div class="break-all overflow-y-auto whitespace-pre-wrap" id="game-output"></div>
 					</div>
 					<input type="text"
                            placeholder="typeity typey type"
@@ -62,7 +62,7 @@ function createMobileInterface(): string {
 }
 
 function renderApp() {
-	const app = document.querySelector<HTMLDivElement>('#app');
+	const app = document.querySelector<HTMLDivElement>('#app') as HTMLDivElement;
 	if (!app) {
 		return;
 	}
@@ -108,7 +108,7 @@ function handleTextInput(command: string) {
 }
 
 function updateGameOutput() {
-	const outputElement = document.getElementById("game-output");
+	const outputElement = document.getElementById("game-output") as HTMLDivElement;
 	if (outputElement) {
 		outputElement.innerHTML = gameOutput;
 
