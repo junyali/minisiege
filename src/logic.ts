@@ -219,7 +219,7 @@ export class Minisiege {
 			Share your result:
 			
 			"I survived ${this.player.week - 1} weeks in minisiege and collected ${this.player.coins} coins!
-			How long can YOU survive? Play at [tba]!"
+			How long can YOU survive? Play at minisiege.vercel.app!"
 			
 			Refresh to play again!
 		`;
@@ -235,7 +235,7 @@ export class Minisiege {
 			Share your result:
 			
 			"I survived all 10 weeks in minisiege and collected ${this.player.coins} coins!
-			How long can YOU survive? Play at [tba]!"
+			How long can YOU survive? Play at minisiege.vercel.app!"
 			
 			Refresh to play again!
 		`;
