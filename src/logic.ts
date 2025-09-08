@@ -27,7 +27,7 @@ const EVENTS: GameEvent[] = [
 			"defend": { description: "You block the dino's attack and scare it away!", coinsChange: 0, healthChange: -5, death: false },
 			"flee": { description: "You run away safely but drop your loot!", coinsChange: -30, healthChange: 0, death: false }
 		},
-		scene: "/evil_dino.jpg"
+		scene: "/events/evil_dino.jpg"
 	},
 	{
 		description: "You walk across a bridge and encounter a troll who orders you to pay a toll. What do you do?",
@@ -36,7 +36,7 @@ const EVENTS: GameEvent[] = [
 			"avoid": { description: "You try to avoid paying, but the troll fines you!", coinsChange: -50, healthChange: 0, death: false },
 			"attack": { description: "You attack the troll, but it trolls you first!", coinsChange: 0, healthChange: 0, death: true }
 		},
-		scene: "/troll.png"
+		scene: "/events/troll.png"
 	}
 ]
 
@@ -80,6 +80,7 @@ export class Minisiege {
 		}
 
 		this.currentEvent = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+		this.currentScene = this.currentEvent.scene;
 
 		return `
 			WEEK ${this.player.week}
@@ -111,8 +112,6 @@ export class Minisiege {
 			this.player.isAlive = false;
 			this.player.health = 0;
 		}
-
-		this.currentScene = this.currentEvent.scene;
 
 		this.player.week++;
 		this.currentEvent = null;
