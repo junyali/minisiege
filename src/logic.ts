@@ -37,6 +37,75 @@ const EVENTS: GameEvent[] = [
 			"attack": { description: "You attack the troll, but it trolls you first!", coinsChange: 0, healthChange: 0, death: true }
 		},
 		scene: "/events/troll.png"
+	},
+	{
+		description: "A shift merchant approaches with a glinting smile. What do you do?",
+		actions: {
+			"buy": { description: "You buy his 'magical' potion. It's just water. At least it's clean water?", coinsChange: -15, healthChange: 5, death: false },
+			"ignore": { description: "You walk away. The merchant shouts curses at you but drops a coin!", coinsChange: 3, healthChange: 0, death: false },
+			"rob": { description: "You try to rob the merchant but he pulls out a shark gun! Oops!", coinsChange: 0, healthChange: 0, death: true }
+		},
+		scene: "/events/merchant.png"
+	},
+	{
+		description: "A shift merchant approaches with a glinting smile. What do you do?",
+		actions: {
+			"buy": { description: "You buy his potion and it actually works! You feel amazing!", coinsChange: -15, healthChange: 50, death: false },
+			"ignore": { description: "You walk away. He throws a rock at your back as you leave!", coinsChange: 0, healthChange: -10, death: false },
+			"rob": { description: "You successfully rob him! He was carrying a fortune!", coinsChange: 75, healthChange: -5, death: false }
+		},
+		scene: "/events/merchant.png"
+	},
+	{
+		description: "A goose wearing a tiny business suit waddles up. It honks authoritatively and presents a contract. What do you do?",
+		actions: {
+			"sign": { description: "You sign the contract. The Enterprise Goose hands you a briefcase of coins and vanishes!", coinsChange: 100, healthChange: 0, death: false },
+			"refuse": { description: "You refuse to sign. The goose honks disapprovingly and pecks your ankles!", coinsChange: 0, healthChange: -8, death: false },
+			"negotiate": { description: "You try to negotiate. The goose considers, then offers a smaller briefcase.", coinsChange: 35, healthChange: 0, death: false },
+			"run": { description: "You run away. The Enterprise Goose deploys its legal team of attack geese!", coinsChange: -25, healthChange: -25, death: false }
+		},
+		scene: "/events/enterprisegoose.png"
+	},
+	{
+		description: "You stumble into a royal court. The King looks down at you from his throne. What do you do?",
+		actions: {
+			"bow": { description: "You bow respectfully. The King is pleased and tosses you gold!", coinsChange: 0, healthChange: 0, death: false },
+			"challenge": { description: "You challenge the King's authority. His guards aren't amused.", coinsChange: 0, healthChange: 0, death: true },
+			"steal": { description: "You try to grab the crown jewels. Security is surprisingly tight!", coinsChange: 0, healthChange: 0, death: true },
+			"entertain": { description: "You tell jokes. The King laughs and rewards your wit!", coinsChange: 40, healthChange: 0, death: false },
+			"beg": { description: "The King is not happy, and kicks you out of the court.", coinsChange: 0, healthChange: -50, death: false }
+		},
+		scene: "/events/king.png"
+	},
+	{
+		description: "You arrive at a small village. What do you do?",
+		actions: {
+			"siege": { description: "You lay siege and wait them out. They eventually surrender their treasures.", coinsChange: 200, healthChange: 0, death: false },
+			"burn": { description: "You set fire to their crops. They pay you to stop but you injure yourself in the process", coinsChange: 50, healthChange: -30, death: false },
+			"raid": { description: "You break through their defences and loot their supplies. It was unsuccessful and you're severely injured in the process", coinsChange: 0, healthChange: -80, death: false },
+			"negotiate": { description: "You offer a ceasefire. They accept and nobody is hurt.", coinsChange: 0, healthChange: 0, death: false }
+		},
+		scene: "/siege.png"
+	},
+	{
+		description: "You arrive at a small village. What do you do?",
+		actions: {
+			"siege": { description: "You lay siege and try to wait them out, but they retaliate!", coinsChange: 0, healthChange: -50, death: false },
+			"burn": { description: "You set fire to their crops. You don't earn anything in the process but guilt.", coinsChange: 0, healthChange: -1, death: false },
+			"raid": { description: "You break through their defences but end up being held ransom and released in poor health!", coinsChange: -500, healthChange: -20, death: false },
+			"negotiate": { description: "You offer a ceasefire. They refuse and fight back.", coinsChange: 0, healthChange: -50, death: false }
+		},
+		scene: "/siege.png"
+	},
+	{
+		description: "You arrive at a small village. What do you do?",
+		actions: {
+			"siege": { description: "You lay siege and wait them out. Nothing happens...", coinsChange: 0, healthChange: 0, death: false },
+			"burn": { description: "You set fire to their crops. It ends up backfiring as you trap yourself in a fiery complex!", coinsChange: 0, healthChange: 0, death: true },
+			"raid": { description: "You break through their defences and loot their supplies. They were definitely hiding something!", coinsChange: 300, healthChange: 0, death: false },
+			"negotiate": { description: "They offer you a ceasefire. You accept with your riches.", coinsChange: -100, healthChange: 0, death: false }
+		},
+		scene: "/siege.png"
 	}
 ]
 
